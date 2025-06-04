@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post Instagram</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .post {
+      width: 400px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .post-header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .post-header span {
+      font-weight: bold;
+    }
+
+    .post-image img {
+      width: 100%;
+      display: block;
+    }
+
+    .post-actions {
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .post-actions img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .post-likes, .post-caption, .post-comments {
+      padding: 0 10px 10px;
+    }
+
+    .post-caption span {
+      font-weight: bold;
+    }
+
+    .post-comments {
+      color: gray;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="post">
+    <div class="post-header">
+      <img src="https://via.placeholder.com/40" alt="Foto do perfil">
+      <span>@usuario</span>
+    </div>
+
+    <div class="post-image">
+      <img src="https://via.placeholder.com/400x400" alt="Imagem do post">
+    </div>
+
+    <div class="post-actions">
+      <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Curtir">
+      <img src="https://cdn-icons-png.flaticon.com/512/1380/1380338.png" alt="Comentar">
+      <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Compartilhar">
+    </div>
+
+    <div class="post-likes">
+      <strong>1.234 curtidas</strong>
+    </div>
+
+    <div class="post-caption">
+      <span>@usuario</span> Olha só essa paisagem incrível!
+    </div>
+
+    <div class="post-comments">
+      Ver todos os 32 comentários
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+.navbar-loged {
+    margin-left: auto; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-loged a {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    width: 160px;
+}
+
+.navbar-loged img {
+    width: 30px;
+    height: 30px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: #fff64f;
+    background: linear-gradient(90deg,rgba(245, 236, 61, 1) 0%, rgba(212, 131, 2, 1) 35%, rgba(138, 97, 17, 1) 100%);
+}
+
+.navbar {
+    background-color: #ffffff;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    position: relative;
+    box-shadow: 0px 5px 5px #000000;
+  }
+  
+.navbar img.logo {
+  height: 50px;
+}
+  
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: Candara;
+  display: flex;
+  gap: 8px;
+}
+
+.loginButton {
+  align-items: right;
+  height: 40px;
+  gap: 8px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  background-color: #ffffff;
+  margin-right: none;
+}
+
+.loginButton:hover {
+  cursor: pointer;
+}
+
+.loginButton img {
+  width: 25px;
+  height: 25px;
+}
+
+.loginButton p {
+  font-size: 18px;
+}
+
+.logoutButton {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: #d9534f;
+    border-radius: 5px;
+    padding: 6px 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoutButton:hover {
+    background-color: #c9302c;
+    cursor: pointer;
+}
+
+.post{
+  background-color: white;
+  height: 100%;
+  width: 500px;
+  display: flex;
+  padding: 50px;
+  display: flex;
+  margin-top: 70px;
+  flex-direction: column;
+  border-radius: 10px
+}
+
+.post-body {
+  display: flex;
+  justify-content: center;
+}
+
+.userPostimg {
+  width: 30px;
+  height: 30px;
+}
+
+.postHeader {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.post-content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.post-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.post-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.post-solicitation {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 20px; 
+}
+
+.post-solicitation button {
+  align-items: center;
+  display: flex;
+  justify-content:center;
+  background-color:chocolate;
+  text-decoration: none;
+  cursor: pointer;
+  color: #ffffff;
+  height: 30px;
+  width: 120px;
+  border-radius: 6px;
+  border: none;
+  transition: 0.3s;
+}
+
+.post-solicitation button:hover {
+  background-color: orangered;
+  height: 40px;
+  width: 130px;
+}
+
+.post-solicitation a {
+  text-decoration: none;
+}
+
+.divider {
+  width: 1px;
+  height: 30px;
+  background-color: #ccc;
+}
+
+.criar h3 {
+  background-color: white;
+  height: 50px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.criar a {
+  text-decoration: none;
+  color: rgb(116, 116, 116);
+  border: #000000;
+}

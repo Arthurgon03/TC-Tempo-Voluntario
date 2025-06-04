@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: #f5ec3d;
+    background: linear-gradient(90deg,rgba(245, 236, 61, 1) 0%, rgba(212, 131, 2, 1) 35%, rgba(138, 97, 17, 1) 100%);
+    font-family: Candara;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background-color: rgb(255, 255, 255);
+    padding: 50px;
+    border-radius: 15px;
+    border: 7px;
+    border-style: outset;
+    border-color: rgb(255, 102, 0);
+    box-shadow: 0 20px 10px rgba(0,0,0,0.1);
+    width: 500px;
+    height: 425px;
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #000000;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #db8400;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #f06000;
+  }
+
+  p {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  p a {
+    color: #db3e00;
+    text-decoration: none;
+  }
+
+  p a:hover {
+    text-decoration: underline;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.success-message {
+  color: green;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+}
