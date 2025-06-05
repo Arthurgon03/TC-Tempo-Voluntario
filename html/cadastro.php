@@ -18,7 +18,7 @@
             <p class="success-message"><?php echo $_SESSION['sucesso']; unset($_SESSION['sucesso']); ?></p>
         <?php endif; ?>
 
-        <form action="../script/cadastro.php" method="POST">
+        <form action="../script/cadastro.php" method="POST" enctype="multipart/form-data"> 
             <legend><b>Faça seu cadastro!</b></legend>
             <br>
             <div class="inputBox">
@@ -64,6 +64,12 @@
                 <input type="text" name="endereco" id="endereco" class="inputUser" required>
                 <label for="endereco" class="labelInput">Insira seu endereço:</label>
             </div> 
+
+            <div class="inputBox">
+                <input type="file" name="user_img" id="user_img" class="inputUser">
+                <label for="user_img" class="labelInput">Foto de Perfil (opcional)</label>
+            </div>
+
             <input type="submit" name="submit" id="submit" class="inputButton">
             <p class="voltar">Já tem uma conta? <a href="login.php" class="enter">Entre aqui!</a></p><br>
             <a style="color: rgb(255, 255, 255); font-size: 15px; text-decoration: none; font-style: bold; font-family: Arial, Helvetica, sans-serif; background-color: rgb(73, 67, 63); padding: 6px; border-radius: 5px;" 
@@ -73,4 +79,3 @@
 
 </body>
 </html>
-

@@ -2,7 +2,6 @@
 session_start();
 require_once 'conexao.php';
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION['id'])) {
     die("Usuário não autenticado.");
 }
@@ -11,7 +10,6 @@ $id_usuario = $_SESSION['id'];
 $texto_post = $_POST['texto_post'] ?? '';
 $imagemPath = null;
 
-// Verifica se enviou imagem
 if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == UPLOAD_ERR_OK) {
     $pastaDestino = '../html/uploads';
     if (!is_dir($pastaDestino)) {
@@ -23,14 +21,12 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == UPLOAD_ERR_OK) {
     $caminhoCompleto = $pastaDestino . '/' . $nomeArquivo;
 
     if (move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoCompleto)) {
-        // Caminho salvo no banco
         $imagemPath = 'uploads/' . $nomeArquivo;
     } else {
         die('Erro ao salvar a imagem.');
     }
 }
 
-// Inserindo no banco
 try {
     $sql = "INSERT INTO publicacoes (id_usuario, texto_post, imagem) 
             VALUES (:id_usuario, :texto_post, :imagem)";

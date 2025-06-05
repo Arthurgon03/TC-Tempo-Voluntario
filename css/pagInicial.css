@@ -93,6 +93,7 @@ body {
 .loginButton img {
   width: 25px;
   height: 25px;
+  border-radius: 100%;
 }
 
 .loginButton p {
@@ -116,6 +117,7 @@ body {
 
 .logoutButton:hover {
     background-color: #c9302c;
+    color: white;
     cursor: pointer;
 }
 
@@ -222,5 +224,25 @@ body {
 .criar a {
   text-decoration: none;
   color: rgb(116, 116, 116);
-  border: #000000;
+}
+
+.verPerfil {
+  background-color: red; 
+  color: white; 
+  padding: 10px; 
+  height: 40px;
+  width: 100px;
+  margin: 0 auto;
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  display:flex; 
+  justify-content: center; 
+  align-items: center;
+  text-decoration: none;
+}
+
+.verPerfil:hover {
+  transition: 0.2s;
+  background-color: #700000;
 }

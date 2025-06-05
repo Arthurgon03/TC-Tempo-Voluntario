@@ -2,7 +2,6 @@
 session_start();
 include_once("../script/conexao.php");
 
-// Verificar se é admin
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] !== 'admin') {
     header("Location: pagInicial.php");
     exit;
@@ -11,7 +10,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] !== 'admin') {
 $idAdmin = $_SESSION['id'];
 
 try {
-    // Buscar todos os usuários que NÃO são admin
     $sql = "SELECT id, nome, email, tipo, cidade, telefone FROM usuarios WHERE tipo != 'admin'";
     $stmt = $conexao->prepare($sql);
     $stmt->execute();

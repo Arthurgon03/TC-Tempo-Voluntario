@@ -23,25 +23,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (password_verify($senha, $usuario['senha'])) {
-            // Definindo variáveis de sessão
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
-            $_SESSION['tipo'] = $usuario['tipo']; // tipo: 'voluntário' ou 'organização'
+            $_SESSION['tipo'] = $usuario['tipo']; 
 
             header("Location: ../html/pagInicial.php");
             exit;
         } else {
-            $_SESSION['erro_login'] = "❌ Senha incorreta!";
+            $_SESSION['erro_login'] = "Senha incorreta!";
             header("Location: ../html/login.php");
             exit;
         }
     } else {
-        $_SESSION['erro_login'] = "❌ Usuário não encontrado.";
+        $_SESSION['erro_login'] = "Usuário não encontrado!";
         header("Location: ../html/login.php");
         exit;
     }
 } else {
-    $_SESSION['erro_login'] = "Acesso inválido.";
+    $_SESSION['erro_login'] = "Acesso inválido!";
     header("Location: ../html/login.php");
     exit;
 }

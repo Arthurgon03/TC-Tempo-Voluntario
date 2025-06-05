@@ -69,6 +69,9 @@ $posts = $stmtPosts->fetchAll(PDO::FETCH_ASSOC);
                 <br>
                 <input type="file" name="imagem">
                 <br>
+                <a href="http://localhost/TC_TEMPO_VOLUNTARIO/html/pagInicial.php">
+                    <img src="q" alt="">
+                </a>
                 <button type="submit">Publicar</button>  
             </div>
         </form>

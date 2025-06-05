@@ -11,8 +11,6 @@
 <body>
     <div class="form-container">
         <h2>Faça seu Login</h2>
-
-        <!-- Exibir mensagens de erro ou sucesso -->
         <?php if (isset($_SESSION['erro_login'])): ?>
             <p class="error-message"><?php echo $_SESSION['erro_login']; unset($_SESSION['erro_login']); ?></p>
         <?php elseif (isset($_SESSION['sucesso_logout'])): ?>

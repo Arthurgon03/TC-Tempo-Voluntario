@@ -1,11 +1,9 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fundo */
 body {
     background: linear-gradient(90deg, rgba(245, 236, 61, 1) 0%, rgba(212, 131, 2, 1) 35%, rgba(138, 97, 17, 1) 100%);
     font-family: Candara;
@@ -19,7 +17,6 @@ body {
     gap: 30px;
 }
 
-/* NAVBAR */
 .navbar {
     background-color: #ffffff;
     width: 100%;
@@ -122,8 +119,6 @@ body {
   background-color: #ccc;
 }
 
-
-/* CONTAINER CENTRAL */
 .main-container {
     flex: 1;
     display: flex;
@@ -131,7 +126,6 @@ body {
     align-items: center;
 }
 
-/* PERFIL */
 .perfil-container {
     background-color: white;
     padding: 40px;

@@ -7,14 +7,30 @@ if (!isset($_SESSION['id'])) {
     exit;
 }
 
+$id = $_SESSION['id'];
 $nome = $_SESSION['nome'];
-$tipoUsuarioAtual = $_SESSION['tipo']; // Tipo do usuário logado
+$tipoUsuarioAtual = $_SESSION['tipo'];
+
+$sqlUser = "SELECT user_img FROM usuarios WHERE id = :id";
+$stmtUser = $conexao->prepare($sqlUser);
+$stmtUser->bindParam(':id', $id);
+$stmtUser->execute();
+$userData = $stmtUser->fetch(PDO::FETCH_ASSOC);
+
+$userImg = (!empty($userData['user_img'])) ? "../html/userImagens/" . $userData['user_img'] : "../img/userPicture.avif";
 
 $tipoOposto = ($tipoUsuarioAtual === 'Irá ajudar') ? 'Precisa de ajuda' : 'Irá ajudar';
 
 try {
-    $sql = "SELECT p.id_usuario AS id_usuario_post, u.nome, u.telefone, u.cidade, u.tipo, 
-                   p.texto_post, p.imagem
+    $sql = "SELECT 
+                p.id_usuario AS id_usuario_post, 
+                u.nome, 
+                u.telefone, 
+                u.cidade, 
+                u.tipo, 
+                u.user_img,
+                p.texto_post, 
+                p.imagem
             FROM publicacoes p
             INNER JOIN usuarios u ON p.id_usuario = u.id
             WHERE u.tipo = :tipoOposto
@@ -28,7 +44,6 @@ try {
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -45,7 +60,7 @@ try {
         <div class="navbar-loged">
             <a class="loginButton" href="perfil.php">
                 <p><?php echo htmlspecialchars($nome); ?></p>
-                <img class="user" src="../img/userPicture.avif">
+                <img class="user" src="<?php echo htmlspecialchars($userImg); ?>">
             </a>
             <div class="divider"></div>
             <a href="../script/logout.php" class="logoutButton">Sair</a>
@@ -55,19 +70,21 @@ try {
             <span class="titulo">Tempo Voluntário</span>
         </div>
     </div>
-
+    <br><br>
     <div class="criar">
         <a href="post.php">
-            <h3 style="display: flex; align-items: center; justify-content: center; margin-top: 50px;">
-                Crie uma publicação!
-            </h3>
+            <h3>Crie uma publicação!</h3>
         </a>
     </div>
+    <br>
+    <br>
+    <?php if ($_SESSION['tipo'] === 'admin'): ?>
+        <a href="http://localhost/TC_TEMPO_VOLUNTARIO/html/excluirConta.php" class="verPerfil">
+            Ver Perfis
+        </a>
+    <?php endif; ?>
 
-            <a href="http://localhost/TC_TEMPO_VOLUNTARIO/html/excluirConta.php" style="background-color: red; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">
-                Ver Perfils 
-            </a>
-
+    <!-- Posts -->
     <?php foreach ($posts as $row): 
         $idUsuarioPost = $row['id_usuario_post'];
         $nomePost      = htmlspecialchars($row['nome']);
@@ -77,13 +94,15 @@ try {
         $telefone      = preg_replace('/\D/', '', $row['telefone']);
         $cidade        = htmlspecialchars($row['cidade'] ?? '');
 
-        $textoBotao    = ($tipoUsuarioAtual === 'voluntário') ? 'Irei ajudar' : 'Preciso de ajuda';
+        $userPostImg = !empty($row['user_img']) ? "../" . htmlspecialchars($row['user_img']) : "../img/userPicture.avif";
+
+        $textoBotao    = ($tipoUsuarioAtual === 'Irá ajudar') ? 'Irei ajudar' : 'Preciso de ajuda';
         $linkWhatsapp  = "https://wa.me/55$telefone";
     ?>
         <div class="post-body">
             <div class="post">
                 <div class="postHeader">
-                    <img class="userPostimg" src="../img/userPicture.avif">
+                    <img class="userPostimg" src="<?php echo $userPostImg; ?>">
                     <p><?php echo "$nomePost - $cidade"; ?> | <?php echo $tipo; ?></p>
                 </div>
 
@@ -96,6 +115,7 @@ try {
                         <img src="<?php echo '../' . $imagem; ?>" alt="Imagem do post" style="max-width: 300px;">
                     </div>
                 <?php endif; ?>
+
                 <br>
                 <div class="post-solicitation">
                     <a href="<?php echo $linkWhatsapp; ?>" target="_blank">
