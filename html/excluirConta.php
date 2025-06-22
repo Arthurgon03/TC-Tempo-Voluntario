@@ -26,49 +26,9 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | Excluir Contas</title>
+    <link rel="stylesheet" href="../css/excluirConta.css">
     <link rel="stylesheet" href="../css/pagInicial.css">
-    <style>
-        table {
-            width: 80%;
-            margin: 30px auto;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid gray;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #f06000;
-            color: white;
-        }
-        button {
-            padding: 5px 10px;
-            background-color: red;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: darkred;
-        }
-        .voltar {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .voltar a {
-            background-color: #f06000;
-            padding: 10px 20px;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .voltar a:hover {
-            background-color: #db3e00;
-        }
-    </style>
+    
 </head>
 <body>
 

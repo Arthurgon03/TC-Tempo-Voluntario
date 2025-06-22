@@ -94,7 +94,7 @@ try {
         $telefone      = preg_replace('/\D/', '', $row['telefone']);
         $cidade        = htmlspecialchars($row['cidade'] ?? '');
 
-        $userPostImg = !empty($row['user_img']) ? "../" . htmlspecialchars($row['user_img']) : "../img/userPicture.avif";
+       $userPostImg = !empty($row['user_img']) ? "userImagens/" . htmlspecialchars($row['user_img']) : "userPicture.avif";
 
         $textoBotao    = ($tipoUsuarioAtual === 'Irá ajudar') ? 'Irei ajudar' : 'Preciso de ajuda';
         $linkWhatsapp  = "https://wa.me/55$telefone";
@@ -112,7 +112,7 @@ try {
 
                 <?php if (!empty($imagem)): ?>
                     <div class="post-image">
-                        <img src="<?php echo '../' . $imagem; ?>" alt="Imagem do post" style="max-width: 300px;">
+                        <img src="<?php echo htmlspecialchars($imagem); ?>" alt="Imagem do post" style="max-width: 300px;">
                     </div>
                 <?php endif; ?>
 

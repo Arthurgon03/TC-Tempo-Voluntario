@@ -9,24 +9,17 @@ if (!isset($_SESSION['id'])) {
 
 $id = $_SESSION['id'];
 
-// 🔥 Atualizar dados se o formulário for enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Pegando os dados do formulário e sanitizando
     $nome = htmlspecialchars(trim($_POST['nome']));
     $email = htmlspecialchars(trim($_POST['email']));
     $cidade = htmlspecialchars(trim($_POST['cidade']));
     $estado = htmlspecialchars(trim($_POST['estado']));
     $endereco = htmlspecialchars(trim($_POST['endereco']));
-
-    // Atualizando no banco
     $sql = "UPDATE usuarios SET nome = ?, email = ?, cidade = ?, estado = ?, endereco = ? WHERE id = ?";
     $stmt = $conexao->prepare($sql);
 
     if ($stmt->execute([$nome, $email, $cidade, $estado, $endereco, $id])) {
-        // Atualizar a sessão também, se quiser
         $_SESSION['nome'] = $nome;
-
-        // Recarregar os dados atualizados
         header("Location: perfil.php?atualizado=1");
         exit;
     } else {
@@ -34,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// 🔍 Buscar dados atuais do usuário
 $stmt = $conexao->prepare("SELECT nome, email, cidade, estado, endereco FROM usuarios WHERE id = ?");
 $stmt->execute([$id]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);

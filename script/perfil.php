@@ -9,7 +9,6 @@ if (!isset($_SESSION['id'])) {
 
 $id = $_SESSION['id'];
 
-// Atualiza dados se foi enviado via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = htmlspecialchars(trim($_POST['nome']));
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
@@ -31,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 
-// Busca os dados do usuário
 $stmt = $pdo->prepare("SELECT nome, email, cidade, estado, endereco FROM usuarios WHERE id = ?");
 $stmt->execute([$id]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
