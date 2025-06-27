@@ -5,100 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <title>Tempo Voluntário</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            box-shadow: 0px 5px 5px #000000;
+            flex-wrap: wrap;
+        }
+
+        .navbar img.logo {
+            height: 50px;
+        }
+
+        .navbar-center {
+            font-size: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: Candara;
+            color: #000;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            background-color: #f06000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .navbar-links a:hover {
+            background-color: #db3e00;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background-color: #fffde9;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 500px;
+            padding: 10px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+            padding: 10px;
+        }
+
+        .hero-text h1 {
+            font-size: 36px;
+            color: #e65c00;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .hero-text a {
+            background-color: #e63e06;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 40px;
+            font-size: 20px;
+            display: inline-block;
+        }
+
+        .hero-text a:hover {
+            background-color: #b9360a;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+            }
+
+            .hero-text h1 {
+                font-size: 28px;
+                text-align: center;
+            }
+
+            .hero-text p,
+            .hero-text a {
+                text-align: center;
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
         <img src="../img/logo1.png" alt="Logo" class="logo">
-
-        <div class="navbar-center">
-            <span class="titulo">Tempo Voluntário</span>
-        </div>
-
+        <div class="navbar-center">Tempo Voluntário</div>
         <div class="navbar-links">
             <a href="http://localhost/TC_TEMPO_VOLUNTARIO/html/login.php">Login</a>
             <a href="http://localhost/TC_TEMPO_VOLUNTARIO/html/cadastro.php">Cadastro</a>
-            
         </div>
     </div>
-    <div class="teste">
-        <div class="image">
-             <img class="te" src="https://img.freepik.com/fotos-gratis/feche-o-conceito-de-solidariedade-comunitaria_23-2149182034.jpg?semt=ais_hybrid&w=740" >
+
+    <section class="hero-section">
+        <div class="hero-image">
+            <img src="https://img.freepik.com/fotos-gratis/feche-o-conceito-de-solidariedade-comunitaria_23-2149182034.jpg?semt=ais_hybrid&w=740" alt="Voluntariado">
         </div>
-        <div class="atras">
-            <div id="teste2">
-                 <h1>Doação de Tempo Voluntário</h1>
-                 <br>
-                 <br>
-                 <p> Fazendo a conexão entre voluntários e pessoas que precisam de assistência.<br>
-        Participe do nosso projeto e ajude a transformar vidas com o seu tempo!</p>
-        <a href="http://localhost/TC_TEMPO_VOLUNTARIO/html/login.php">Faça seu login</a>
-            </div>
-            
-           
+        <div class="hero-text">
+            <h1>Doação de Tempo Voluntário</h1>
+            <p>Fazendo a conexão entre voluntários e pessoas que precisam de assistência. Participe do nosso projeto e ajude a transformar vidas com o seu tempo!</p>
+            <a href="http://localhost/TC_TEMPO_VOLUNTARIO/html/login.php">Faça seu login</a>
         </div>
-        
-    
-        
-        
-       
-    </div>
-    
-    <style>
-        
-        .te{
-
-            position: fixed;
-            display: flex;
-            width: 40%;
-            height: 100%;
-
-        }
-        
-       #teste2 h1 {
-        color: rgb(241, 129, 0);
-        font-family: Arial, Helvetica, sans-serif;
-        display: flex;
-        position: fixed;
-        font-size: 300%;
-        top: 40%;
-        left: 45%;
-        width: 50%;
-    }
-       #teste2 p{
-        font-family: Arial, Helvetica, sans-serif;
-        position: relative;
-        display: flex;
-        font-size: 20px;
-        top: 250px;
-        left: 45%;
-        width: 52%;
-
-        }
-        #teste2 a{
-        background-color: #e63e06;
-        position: relative;
-        display: flex;
-        left: 60%;
-        top: 300px;
-        text-decoration: none;
-        align-items: center;
-        justify-content: center;
-      color: rgb(252, 252, 252);
-      font-size: 30px;
-      width: 20%;
-      height: 80px;
-      padding: 14px 28px;
-      border-radius: 40px;
-      font-size: 25px;
-       transition: background 0.3s ease;
-    }
-        #teste2 a:hover{
-            background-color: #b9360a;
-        }
-  
-        
-        
-    </style>
-    
+    </section>
 </body>
 </html>

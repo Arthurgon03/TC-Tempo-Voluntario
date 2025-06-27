@@ -12,13 +12,14 @@ $id = $_SESSION['id'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = htmlspecialchars(trim($_POST['nome']));
     $email = htmlspecialchars(trim($_POST['email']));
+    $telefone = htmlspecialchars(trim($_POST['telefone']));
     $cidade = htmlspecialchars(trim($_POST['cidade']));
     $estado = htmlspecialchars(trim($_POST['estado']));
     $endereco = htmlspecialchars(trim($_POST['endereco']));
-    $sql = "UPDATE usuarios SET nome = ?, email = ?, cidade = ?, estado = ?, endereco = ? WHERE id = ?";
+    $sql = "UPDATE usuarios SET nome = ?, email = ?, telefone = ?, cidade = ?, estado = ?, endereco = ? WHERE id = ?";
     $stmt = $conexao->prepare($sql);
 
-    if ($stmt->execute([$nome, $email, $cidade, $estado, $endereco, $id])) {
+    if ($stmt->execute([$nome, $email, $telefone, $cidade, $estado, $endereco, $id])) {
         $_SESSION['nome'] = $nome;
         header("Location: perfil.php?atualizado=1");
         exit;
@@ -27,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$stmt = $conexao->prepare("SELECT nome, email, cidade, estado, endereco FROM usuarios WHERE id = ?");
+$stmt = $conexao->prepare("SELECT nome, email, telefone, cidade, estado, endereco FROM usuarios WHERE id = ?");
 $stmt->execute([$id]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -43,7 +44,7 @@ if (!$usuario) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/perfil.css">
-    <link rel="stylesheet" href="../css/style.css">
+
     <title>Tempo Voluntário | Perfil</title>
 </head>
 <body>
@@ -79,26 +80,32 @@ if (!$usuario) {
                     <label>Nome:</label>
                     <span id="text-nome"><?php echo htmlspecialchars($usuario['nome']); ?></span>
                     <input type="text" name="nome" id="input-nome" value="<?php echo htmlspecialchars($usuario['nome']); ?>" style="display: none;">
-                </div>
-
+                </div> 
+                <br>
                 <div class="info">
                     <label>Email:</label>
                     <span id="text-email"><?php echo htmlspecialchars($usuario['email']); ?></span>
                     <input type="email" name="email" id="input-email" value="<?php echo htmlspecialchars($usuario['email']); ?>" style="display: none;">
                 </div>
-
+                <br>
+                <div class="info">
+                    <label>Numero:</label>
+                    <span id="text-telefone"><?php echo htmlspecialchars($usuario['telefone']); ?></span>
+                    <input type="text" name="telefone" id="input-telefone" value="<?php echo htmlspecialchars($usuario['telefone']); ?>" style="display: none;">
+                </div>
+                <br>
                 <div class="info">
                     <label>Cidade:</label>
                     <span id="text-cidade"><?php echo htmlspecialchars($usuario['cidade']); ?></span>
                     <input type="text" name="cidade" id="input-cidade" value="<?php echo htmlspecialchars($usuario['cidade']); ?>" style="display: none;">
                 </div>
-
+                <br>
                 <div class="info">
                     <label>Estado:</label>
                     <span id="text-estado"><?php echo htmlspecialchars($usuario['estado']); ?></span>
                     <input type="text" name="estado" id="input-estado" value="<?php echo htmlspecialchars($usuario['estado']); ?>" style="display: none;">
                 </div>
-
+                <br>
                 <div class="info">
                     <label>Endereço:</label>
                     <span id="text-endereco"><?php echo htmlspecialchars($usuario['endereco']); ?></span>
@@ -122,7 +129,7 @@ if (!$usuario) {
             document.getElementById('btn-salvar').style.display = 'inline-block';
             document.getElementById('btn-cancelar').style.display = 'inline-block';
 
-            const campos = ['nome', 'email', 'cidade', 'estado', 'endereco'];
+            const campos = ['nome', 'email', 'telefone', 'cidade', 'estado', 'endereco'];
             campos.forEach(campo => {
                 document.getElementById('text-' + campo).style.display = 'none';
                 document.getElementById('input-' + campo).style.display = 'inline-block';
@@ -134,7 +141,7 @@ if (!$usuario) {
             document.getElementById('btn-salvar').style.display = 'none';
             document.getElementById('btn-cancelar').style.display = 'none';
 
-            const campos = ['nome', 'email', 'cidade', 'estado', 'endereco'];
+            const campos = ['nome', 'email', 'telefone', 'cidade', 'estado', 'endereco'];
             campos.forEach(campo => {
                 document.getElementById('text-' + campo).style.display = 'inline';
                 document.getElementById('input-' + campo).style.display = 'none';
